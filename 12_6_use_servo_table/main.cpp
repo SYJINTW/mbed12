@@ -25,7 +25,7 @@ void encoder_control() {
    last = value;
 }
 
-
+bool flag = 1;
 int main() {
 
    pc.set_baud(9600);
@@ -37,17 +37,26 @@ int main() {
    while(1) {
 
    //TODO: revise this value according to your result
-   servo_control(34.053);
+   if(flag) 
+   {
+      servo_control(-29.553);
+      flag = 0;
+   }
+   else
+   {
+      servo_control(-40.553);
+      flag = 1;
+   }
 
    steps = 0;
    t.reset();
    t.start();
 
-   ThisThread::sleep_for(8000ms);
+   ThisThread::sleep_for(5000ms);
 
    float time = t.read();
 
    printf("%1.3f\r\n", (float) steps * 6.5 * 3.14 / 32 / time);
-
+   
    }
 }

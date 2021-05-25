@@ -17,6 +17,8 @@ int main() {
    while(1) {
       servo_control(100);
       ThisThread::sleep_for(2000ms);
+      servo_control(0);
+      ThisThread::sleep_for(2000ms);
       servo_control(-100);
       ThisThread::sleep_for(2000ms);
    }
