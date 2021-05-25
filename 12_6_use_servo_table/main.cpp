@@ -44,7 +44,7 @@ int main() {
    }
    else
    {
-      servo_control(-40.553);
+      servo_control(35.553);
       flag = 1;
    }
 
